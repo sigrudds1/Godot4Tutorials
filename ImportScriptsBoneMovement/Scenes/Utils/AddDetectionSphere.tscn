@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp8t7mpcpoqad"]
+
+[ext_resource type="Script" path="res://Scenes/Utils/AddDetectionSphere.gd" id="1_uymdw"]
+
+[node name="AddUnitDetection" type="Node"]
+script = ExtResource("1_uymdw")

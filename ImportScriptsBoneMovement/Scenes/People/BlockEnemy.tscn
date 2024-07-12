@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp6fslpqsb5yh"]
+
+[ext_resource type="Script" path="res://Scenes/People/BlockEnemy.gd" id="1_pjgcd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ia6xb"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2soan"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tjdd7"]
+
+[node name="BlockEnemy" type="Node3D" groups=["Enemies"]]
+script = ExtResource("1_pjgcd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ia6xb")
+surface_material_override/0 = SubResource("StandardMaterial3D_2soan")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="MeshInstance3D"]
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/AnimatableBody3D"]
+shape = SubResource("BoxShape3D_tjdd7")

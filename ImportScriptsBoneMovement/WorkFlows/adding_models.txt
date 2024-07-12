@@ -1,0 +1,40 @@
+Collsiion shapes that follow a bone controlled mesh 
+ (Manually)
+	1. Add Child to Skeleton3D - BoneAttachment3D
+		1a. BoneAttachment3D Inspector - Find the Bone Name parameter and 
+			select the bone that controls the mesh.
+		1b. Add Child to BoneAttachment3D - PhysicalBone3D
+			1b1. PhysicalBone3D Inspector - Find the Bone Name parameter and
+				select the bone that controls the mesh.
+	2. Select the mesh and in viewer click mesh > Create Trimesh Static Body
+		2a. Move the CollisionShape3D to be a child of PhysicalBone3D
+		2b. Delete the StaticBody3D child from the mesh
+ (Scripts)
+	1. Select model e.g. BlockPerson.glft
+	2. On Import tab > Import Script > Path Select res://Scripts/Utils/post_import_add_BA3D_collisions.gd
+	3. Reimport, this will also save a tscn file wtih the file name of the gltf e.g. BlockPerson.tscn
+
+Adding Detection Sphere
+	1. Open AddDetectionSphere.tscn
+	2. Drag the gltf file to be modified to the Scene property in the Inspector
+	3. Click the Update checkbox property in the Inspector, this will save a new
+		file with the name of the tscn with addition too _DA in the file name,
+		you can rename it later, the script will not overwrite during execution.
+	4. Add a script
+	5. With the DetectionArea3d node selected, connect the appropriate signals in
+		the Node>signals tab, Note that if you have prebuilt signal functions in 
+		the script it will reattach the signals to those functions, it even works
+		in multi-tier Class chains e.g if GoodGuy class inherits Person class and 
+		the signal function is in Person, the signal will reattach to the Person Class.
+		So in this case func _on_detection_area_3d_body_entered(p_body): already 
+		in cBlockPerson.gd will be connected and not overwritten.
+	* Note you may need to use the advanced slider in the concect signal interface
+		to get it to connect to the parent class.
+	
+
+Asking ChatGPT
+In Godot game engine version 4.0.stable
+Please consider this code:
+```python
+code
+```
